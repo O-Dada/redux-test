@@ -11,7 +11,7 @@ const CartItem = (props) => {
     <div>
       <img src={props.imgSrc} />
       <p>{props.name}</p>
-      <p>{props.nairaPrice}</p>
+      <p>{props.dollarPrice}</p>
       <button onClick={props.onAddToCart}>Add to Cart</button>
     </div>
   );
