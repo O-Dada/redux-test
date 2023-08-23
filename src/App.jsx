@@ -1,10 +1,9 @@
 import { useSelector } from "react-redux";
 import "./App.css";
-import CartItem from "./assets/components/CartItem";
+import CartItem from "./components/CartItem";
 import items from "./items";
-import CartPrice from "./assets/components/CartPrice";
+import CartPrice from "./components/CartPrice";
 import { useDispatch } from "react-redux";
-// import { addItem, changeCurrency } from "./redux/store";
 import { addItem } from "./redux/slice/itemSlice";
 import { changeCurrency } from "./redux/slice/currencySlice";
 
