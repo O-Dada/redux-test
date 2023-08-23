@@ -1,0 +1,16 @@
+#root {
+  /* max-width: 1280px; */
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+img {
+  width: 50%;
+}
+p {
+  color: white;
+}
+.cartDiv {
+  display: flex;
+}
