@@ -10,6 +10,10 @@ import { changeCurrency } from "./redux/slice/currencySlice";
 function App() {
   // const { count } = useSelector((state) => state.totals);
   const dispatch = useDispatch();
+
+  function handleAddToCart(item) {
+    dispatch(addItem(item));
+  }
   function itemMap(item) {
     return (
       <CartItem
@@ -18,6 +22,7 @@ function App() {
         imgSrc={item.image}
         dollarPrice={item.dollarPrice}
         nairaPrice={item.nairaPrice}
+        onAddToCart={() => handleAddToCart(item)}
       />
     );
   }

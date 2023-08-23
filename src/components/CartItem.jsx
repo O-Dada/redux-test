@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 // import { increment } from "../../redux/slice/itemSlice";
+import { changeCurrency } from "../redux/slice/currencySlice";
 
 const CartItem = (props) => {
   const items = useSelector((state) => state.items);
@@ -11,7 +12,7 @@ const CartItem = (props) => {
       <img src={props.imgSrc} />
       <p>{props.name}</p>
       <p>{props.nairaPrice}</p>
-      <button>Add to Cart</button>
+      <button onClick={props.onAddToCart}>Add to Cart</button>
     </div>
   );
 };
