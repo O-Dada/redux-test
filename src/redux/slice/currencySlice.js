@@ -7,11 +7,11 @@ const currencySlice = createSlice({
   name: "currency",
   initialState,
   reducers: {
-    changeCurrency: (state, action) => {
-      return action.payload;
+    toggleCurrency: (state) => {
+      return state === "USD" ? "NGN" : "USD";
     },
   },
 });
 
-export const { changeCurrency } = currencySlice.actions;
+export const { toggleCurrency } = currencySlice.actions;
 export default currencySlice.reducer;

@@ -1,17 +1,17 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
-// import { increment } from "../../redux/slice/itemSlice";
-import { changeCurrency } from "../redux/slice/currencySlice";
+import { useDispatch, useSelector } from "react-redux";
 
 const CartItem = (props) => {
-  const items = useSelector((state) => state.items);
-  const currency = useSelector((state) => state.currency);
+  const { name, image, currency, dollarPrice, nairaPrice, onAddToCart } = props;
+
   const dispatch = useDispatch();
+
+  const priceToShow = currency === "USD" ? dollarPrice : nairaPrice;
   return (
     <div>
-      <img src={props.imgSrc} />
-      <p>{props.name}</p>
-      <p>{props.dollarPrice}</p>
+      <img src={image} alt={name} />
+      <p>{name}</p>
+      <p>{priceToShow}</p>
       <button onClick={props.onAddToCart}>Add to Cart</button>
     </div>
   );

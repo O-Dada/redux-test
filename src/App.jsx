@@ -5,11 +5,16 @@ import items from "./items";
 import CartPrice from "./components/CartPrice";
 import { useDispatch } from "react-redux";
 import { addItem } from "./redux/slice/itemSlice";
-import { changeCurrency } from "./redux/slice/currencySlice";
+import { toggleCurrency } from "./redux/slice/currencySlice";
 
 function App() {
   // const { count } = useSelector((state) => state.totals);
   const dispatch = useDispatch();
+  const currentCurrency = useSelector((state) => state.currency);
+
+  function handleToggleCurrency() {
+    dispatch(toggleCurrency());
+  }
 
   function handleAddToCart(item) {
     dispatch(addItem(item));
@@ -19,18 +24,22 @@ function App() {
       <CartItem
         key={item.id}
         name={item.name}
-        imgSrc={item.image}
+        image={item.image}
         dollarPrice={item.dollarPrice}
         nairaPrice={item.nairaPrice}
+        currency={currentCurrency}
         onAddToCart={() => handleAddToCart(item)}
       />
     );
   }
 
   return (
-    <div>
+    <div className="container">
       <div className="cartDiv">{items.map(itemMap)}</div>
-      <CartPrice />
+      <div>
+        <CartPrice />
+        <button onClick={handleToggleCurrency}>Toggle Currency</button>
+      </div>
     </div>
   );
 }

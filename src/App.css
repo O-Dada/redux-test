@@ -14,3 +14,6 @@ p {
 .cartDiv {
   display: flex;
 }
+.container {
+  display: flex;
+}
